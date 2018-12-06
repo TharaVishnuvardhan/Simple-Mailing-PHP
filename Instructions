@@ -1,0 +1,26 @@
+To send emails from localhost (Windows XP Apache/PHP Server - XAMPP)
+
+1) Find the sendmail folder in Xampp Explorer
+
+2) Open the file “C:\xampp\sendmail\sendmail.ini” and add the following params in the corresponding lines:
+
+smtp_server=smtp.gmail.com
+smtp_port=587
+auth_username=your_address@gmail.com         
+auth_password=your_password
+force_sender=your_address@gmail.com
+
+
+3) Open the C:\xampp\php\php.ini, find the following lines and add the path to the sendmail executable file. 
+
+sendmail_path = "C:\sendmail\sendmail.exe -t"
+
+Don’t forget to restart the Apache server after doing that.
+  
+
+4) Create a PHP script with the following code:
+
+mail(
+     'your_email@gmail.com',
+     'Works!',
+     'An email has been generated from your localhost, congratulations!');
